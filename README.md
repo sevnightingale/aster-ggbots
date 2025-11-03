@@ -278,10 +278,10 @@ aster-ggbots/
 ## Competition Submission
 
 **Team**: ggbots
-**Primary Contact**: [Your contact info]
+**Primary Contact**: Sev Nightingale sevnightingale@gmail.com
 **Dashboard URL**: https://aster.ggbots.ai
 **Platform URL**: https://ggbots.ai
-**GitHub**: https://github.com/[your-username]/aster-ggbots
+**GitHub**: https://github.com/[sevnightingale]/aster-ggbots
 
 Built with autonomous AI reasoning for the Aster Vibe Trading Arena.
 Let's vibe. Let's trade. Let's build the future.
