@@ -1,0 +1,1048 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Slider Styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Slider Track */
+input[type="range"]::-webkit-slider-track {
+  background: #374151;
+  height: 8px;
+  border-radius: 4px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #374151;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* Slider Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #be6a47;
+  border: 2px solid #1f2937;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #be6a47;
+  border: 2px solid #1f2937;
+  cursor: pointer;
+  border: none;
+}
+
+/* Slider Focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px #be6a4740;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px #be6a4740;
+}
+
+/* Agent Flow Animations */
+@keyframes flowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    stroke-width: 3;
+  }
+  50% {
+    opacity: 1;
+    stroke-width: 5;
+  }
+}
+
+.flow-line-active {
+  animation: flowPulse 2s ease-in-out infinite;
+}
+
+/* Individual Corner Bracket Classes - Mix and match approach */
+
+/* Top-left corner bracket */
+.corner-top-left {
+  position: relative;
+}
+
+.corner-top-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  opacity: 0.6;
+  pointer-events: none;
+  background: 
+    linear-gradient(to right, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) top/100% 2px no-repeat,
+    linear-gradient(to bottom, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) left/2px 100% no-repeat;
+}
+
+/* Top-right corner bracket */
+.corner-top-right {
+  position: relative;
+}
+
+.corner-top-right::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 70%;
+  opacity: 0.6;
+  pointer-events: none;
+  background: 
+    linear-gradient(to left, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) top/100% 2px no-repeat,
+    linear-gradient(to bottom, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) right/2px 100% no-repeat;
+}
+
+/* Bottom-left corner bracket */
+.corner-bottom-left {
+  position: relative;
+}
+
+.corner-bottom-left::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  opacity: 0.6;
+  pointer-events: none;
+  background: 
+    linear-gradient(to right, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) bottom/100% 2px no-repeat,
+    linear-gradient(to top, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) left/2px 100% no-repeat;
+}
+
+/* Bottom-right corner bracket */
+.corner-bottom-right {
+  position: relative;
+}
+
+.corner-bottom-right::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 70%;
+  opacity: 0.6;
+  pointer-events: none;
+  background: 
+    linear-gradient(to left, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) bottom/100% 2px no-repeat,
+    linear-gradient(to top, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) right/2px 100% no-repeat;
+}
+
+/* Chart Grid Background - Much more subtle */
+.chart-grid {
+  background-image: 
+    linear-gradient(rgba(227, 229, 230, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 229, 230, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Remove basic borders - we're going back to extended corner brackets only */
+
+/* Gradient Horizontal Dividers - Match corner bracket styling */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, #e3e5e6 30%, #e3e5e6 70%, transparent 100%);
+  opacity: 0.6;
+  margin: 12px 0;
+}
+
+/* Keep main body as pure charcoal void - no texture */
+body {
+  /* Pure void background */
+}
+
+/* GGBot Component Styles */
+
+/* Inactive state - dimmed */
+.ggbot-circle.ggbot-inactive {
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.7),      /* Darker, less prominent */
+    -8px -8px 16px rgba(255, 255, 255, 0.03); /* Very subtle light */
+  opacity: 0.7;
+}
+
+.ggbot-container.ggbot-inactive .ggbot-message-text {
+  color: var(--bone-300); /* Muted text */
+}
+
+/* Idle state - brighter with subtle pulse */
+.ggbot-circle.ggbot-idle {
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.9),
+    -8px -8px 16px rgba(255, 255, 255, 0.12); /* Brighter white */
+  animation: idlePulse 3s ease-in-out infinite;
+}
+
+@keyframes idlePulse {
+  0%, 100% {
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.9),
+      -8px -8px 16px rgba(255, 255, 255, 0.12);
+  }
+  50% {
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.9),
+      -8px -8px 16px rgba(255, 255, 255, 0.18);
+  }
+}
+
+.ggbot-container.ggbot-idle .ggbot-message-text {
+  color: var(--bone-200); /* Normal bright text */
+}
+
+/* Rotating shadow animation for active states */
+@keyframes rotatingShadowBlue {
+  0%   { box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9), -8px -8px 16px rgba(56, 161, 199, 0.15); }
+  25%  { box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.9), 8px -8px 16px rgba(56, 161, 199, 0.15); }
+  50%  { box-shadow: -8px -8px 16px rgba(0, 0, 0, 0.9), 8px 8px 16px rgba(56, 161, 199, 0.15); }
+  75%  { box-shadow: 8px -8px 16px rgba(0, 0, 0, 0.9), -8px 8px 16px rgba(56, 161, 199, 0.15); }
+  100% { box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9), -8px -8px 16px rgba(56, 161, 199, 0.15); }
+}
+
+@keyframes rotatingShadowGreen {
+  0%   { box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9), -8px -8px 16px rgba(44, 190, 119, 0.15); }
+  25%  { box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.9), 8px -8px 16px rgba(44, 190, 119, 0.15); }
+  50%  { box-shadow: -8px -8px 16px rgba(0, 0, 0, 0.9), 8px 8px 16px rgba(44, 190, 119, 0.15); }
+  75%  { box-shadow: 8px -8px 16px rgba(0, 0, 0, 0.9), -8px 8px 16px rgba(44, 190, 119, 0.15); }
+  100% { box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9), -8px -8px 16px rgba(44, 190, 119, 0.15); }
+}
+
+@keyframes rotatingShadowOrange {
+  0%   { box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9), -8px -8px 16px rgba(190, 106, 71, 0.15); }
+  25%  { box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.9), 8px -8px 16px rgba(190, 106, 71, 0.15); }
+  50%  { box-shadow: -8px -8px 16px rgba(0, 0, 0, 0.9), 8px 8px 16px rgba(190, 106, 71, 0.15); }
+  75%  { box-shadow: 8px -8px 16px rgba(0, 0, 0, 0.9), -8px 8px 16px rgba(190, 106, 71, 0.15); }
+  100% { box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.9), -8px -8px 16px rgba(190, 106, 71, 0.15); }
+}
+
+/* Status-specific quadrant borders */
+.ggbot-circle.ggbot-extraction::before,
+.ggbot-circle.ggbot-extracting::before {
+  background: 
+    /* Top-left quadrant - blue */
+    radial-gradient(circle at 25% 25%, rgba(56, 161, 199, 0.6) 0%, transparent 50%),
+    /* Bottom-right quadrant - dark */
+    radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+}
+
+.ggbot-circle.ggbot-extraction,
+.ggbot-circle.ggbot-extracting {
+  animation: rotatingShadowBlue 4s linear infinite;
+}
+
+.ggbot-circle.ggbot-decision::before,
+.ggbot-circle.ggbot-deciding::before {
+  background: 
+    /* Top-left quadrant - green */
+    radial-gradient(circle at 25% 25%, rgba(44, 190, 119, 0.6) 0%, transparent 50%),
+    /* Bottom-right quadrant - dark */
+    radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+}
+
+.ggbot-circle.ggbot-decision,
+.ggbot-circle.ggbot-deciding {
+  animation: rotatingShadowGreen 3.5s linear infinite;
+}
+
+.ggbot-circle.ggbot-trading::before {
+  background: 
+    /* Top-left quadrant - orange */
+    radial-gradient(circle at 25% 25%, rgba(190, 106, 71, 0.6) 0%, transparent 50%),
+    /* Bottom-right quadrant - dark */
+    radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+}
+
+.ggbot-circle.ggbot-trading {
+  animation: rotatingShadowOrange 3s linear infinite;
+}
+
+/* Message text colors by status - both inline and external */
+.ggbot-container.ggbot-extraction .ggbot-message-text,
+.ggbot-container.ggbot-extraction .ggbot-message-text-inline,
+.ggbot-container.ggbot-extracting .ggbot-message-text,
+.ggbot-container.ggbot-extracting .ggbot-message-text-inline {
+  color: #38a1c7; /* Extraction blue */
+}
+
+.ggbot-container.ggbot-decision .ggbot-message-text,
+.ggbot-container.ggbot-decision .ggbot-message-text-inline,
+.ggbot-container.ggbot-deciding .ggbot-message-text,
+.ggbot-container.ggbot-deciding .ggbot-message-text-inline {
+  color: #2cbe77; /* Decision green */
+}
+
+.ggbot-container.ggbot-trading .ggbot-message-text,
+.ggbot-container.ggbot-trading .ggbot-message-text-inline {
+  color: #be6a47; /* Trading orange */
+}
+
+/* Hover states for status colors */
+.ggbot-circle.ggbot-extraction:hover:not(.ggbot-disabled),
+.ggbot-circle.ggbot-extracting:hover:not(.ggbot-disabled) {
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.95),
+    -10px -10px 20px rgba(56, 161, 199, 0.2);
+}
+
+.ggbot-circle.ggbot-decision:hover:not(.ggbot-disabled),
+.ggbot-circle.ggbot-deciding:hover:not(.ggbot-disabled) {
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.95),
+    -10px -10px 20px rgba(44, 190, 119, 0.2);
+}
+
+.ggbot-circle.ggbot-trading:hover:not(.ggbot-disabled) {
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.95),
+    -10px -10px 20px rgba(190, 106, 71, 0.2);
+}
+
+/* Spinner styles */
+.ggbot-spinner {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--bone-200);
+}
+.ggbot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.ggbot-circle {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 110px;
+  background: var(--charcoal-900);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  /* Neumorphic dual shadows */
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.9),
+    -8px -8px 16px rgba(255, 255, 255, 0.08);
+}
+
+/* 4-quadrant border system using pseudo-elements */
+.ggbot-circle::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 50%;
+  background: 
+    /* Top-left quadrant - light */
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+    /* Bottom-right quadrant - dark */
+    radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+  mask: 
+    radial-gradient(circle at center, transparent 108px, black 110px);
+  -webkit-mask: 
+    radial-gradient(circle at center, transparent 108px, black 110px);
+  z-index: 0;
+}
+
+.ggbot-circle > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ggbot-circle:hover:not(.ggbot-disabled) {
+  transform: translateY(-2px);
+  background: #1c1c1e; /* 10% lighter than charcoal-900 */
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.95),
+    -10px -10px 20px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(227, 229, 230, 0.1); /* Subtle glow */
+}
+
+.ggbot-circle:active:not(.ggbot-disabled) {
+  transform: translateY(1px);
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.85),
+    -4px -4px 8px rgba(255, 255, 255, 0.06);
+}
+
+.ggbot-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ggbot-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  /* Lock layout in place */
+  gap: 0.5rem;
+}
+
+.ggbot-name {
+  font-family: 'Kanit', system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bone-200);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  /* Fixed height to prevent layout shift */
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ggbot-status-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  /* Fixed height to prevent layout shift */
+  height: 1rem;
+}
+
+.ggbot-status-indicator {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.ggbot-status-active {
+  color: #2cbe77;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.ggbot-status-inactive {
+  color: var(--bone-300);
+}
+
+.ggbot-status-extraction {
+  color: #38a1c7;
+}
+
+.ggbot-status-decision {
+  color: #2cbe77;
+}
+
+.ggbot-status-trading {
+  color: #be6a47;
+}
+
+.ggbot-status-text {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: var(--bone-300);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.ggbot-message-inline {
+  max-width: 180px;
+  text-align: center;
+  /* Fixed height to prevent layout shift */
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ggbot-message-text-inline {
+  font-size: 0.75rem;
+  color: var(--bone-300);
+  line-height: 1.3;
+  /* Prevent text wrapping */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ggbot-spinner-inline {
+  display: inline-block;
+  margin-right: 0.25rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--bone-200);
+}
+
+/* Removed ::before pseudo-element for cleaner look */
+
+/* Subtle inner shadow for depth */
+.ggbot-circle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: inherit;
+  background: linear-gradient(145deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Theme System - Dark/Light Mode Support */
+[data-theme="dark"] {
+  --bg-primary: #161618;       /* charcoal-900 */
+  --bg-secondary: #1f1f23;     /* charcoal-800 */
+  --bg-tertiary: #2a2a30;      /* charcoal-700 */
+  --text-primary: #e3e5e6;     /* bone-200 */
+  --text-secondary: #d6d8da;   /* bone-300 */
+  --text-muted: #9ca3af;       /* gray-400 */
+  --border: #36363d;           /* charcoal-600 */
+  --border-hover: #4a4a50;     /* charcoal-500 */
+  --logo-invert: 89%;          /* Light logo for dark theme */
+}
+
+[data-theme="light"] {
+  --bg-primary: #f0f2f3;       /* bone-100 */
+  --bg-secondary: white;
+  --bg-tertiary: #e3e5e6;      /* bone-200 */
+  --text-primary: #1f1f23;     /* charcoal-800 */
+  --text-secondary: #2a2a30;   /* charcoal-700 */
+  --text-muted: #6b7280;       /* gray-500 */
+  --border: #d6d8da;           /* bone-300 */
+  --border-hover: #c1c5c7;     /* darker bone for hover */
+  --logo-invert: 12%;          /* Dark logo for light theme */
+}
+
+:root {
+  /* Base colors (preserved for existing components) */
+  --charcoal-900: #161618;
+  --charcoal-800: #1a1a1c;
+  --charcoal-700: #2a2a30;
+  --charcoal-600: #3a3a40;
+  --charcoal-500: #4a4a50;
+  --bone-100: #f0f2f3;
+  --bone-200: #e3e5e6;
+  --bone-300: #d0d2d3;
+
+  /* Agent colors (same in both themes) */
+  --agent-extraction: #38a1c7;
+  --agent-decision: #2cbe77;
+  --agent-trading: #be6a47;
+
+  /* Status colors (same in both themes) */
+  --status-success: #10b981;
+  --status-danger: #ef4444;
+  --status-warning: #f97316;
+
+  /* Financial data colors (matches Activate/Deactivate button colors) */
+  --profit-color: #10b981;      /* emerald-600 - same as Activate button */
+  --loss-color: #e11d48;        /* rose-600 - same as Deactivate button */
+  --neutral-color: #9ca3af;     /* gray-400 - for zero/neutral values */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--charcoal-900);
+  color: var(--bone-200);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-kanit), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bone-300);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bone-200);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--bone-300);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--bone-300);
+  color: var(--charcoal-900);
+}
+
+/* Grid background pattern */
+.grid-background {
+  background-image: linear-gradient(to right, rgba(227, 229, 230, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(227, 229, 230, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Agent glow animations */
+@keyframes agent-glow-extraction {
+  0%, 100% { 
+    box-shadow: 0 0 25px rgba(56, 161, 199, 0.6);
+  }
+  50% { 
+    box-shadow: 0 0 35px rgba(56, 161, 199, 0.8);
+  }
+}
+
+@keyframes agent-glow-decision {
+  0%, 100% { 
+    box-shadow: 0 0 25px rgba(44, 190, 119, 0.6);
+  }
+  50% { 
+    box-shadow: 0 0 35px rgba(44, 190, 119, 0.8);
+  }
+}
+
+@keyframes agent-glow-trading {
+  0%, 100% { 
+    box-shadow: 0 0 25px rgba(190, 106, 71, 0.6);
+  }
+  50% { 
+    box-shadow: 0 0 35px rgba(190, 106, 71, 0.8);
+  }
+}
+
+/* Flow line animations */
+@keyframes flow {
+  to {
+    stroke-dashoffset: -15;
+  }
+}
+
+/* Utility classes for animations */
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-flow {
+  animation: flow 3s linear infinite;
+}
+
+/* Paper Texture Classes */
+.paper-texture {
+  position: relative;
+  background: 
+    /* Paper grain layer - bone color at 2% opacity */
+    radial-gradient(circle at 20% 80%, transparent 1px, rgba(227, 229, 230, 0.02) 1px) 0 0 / 4px 4px,
+    /* Fiber texture layer - bone color at 1% opacity */  
+    linear-gradient(45deg, transparent 2px, rgba(227, 229, 230, 0.01) 2px, rgba(227, 229, 230, 0.01) 4px, transparent 4px) 0 0 / 6px 6px,
+    /* Base color */
+    var(--charcoal-800);
+}
+
+.paper-texture-subtle {
+  position: relative;
+  background: 
+    /* Very subtle grain - bone color at 1% opacity */
+    radial-gradient(circle at 30% 70%, transparent 2px, rgba(227, 229, 230, 0.01) 2px) 0 0 / 6px 6px,
+    /* Base color */
+    var(--charcoal-800);
+}
+
+/* Rough edge effect for select containers - subtle version */
+.torn-edge-top {
+  clip-path: polygon(
+    0% 1%, 3% 0%, 7% 1%, 11% 0%, 15% 1%, 19% 0%, 23% 1%, 27% 0%, 
+    31% 1%, 35% 0%, 39% 1%, 43% 0%, 47% 1%, 51% 0%, 55% 1%, 59% 0%, 
+    63% 1%, 67% 0%, 71% 1%, 75% 0%, 79% 1%, 83% 0%, 87% 1%, 91% 0%, 
+    95% 1%, 98% 0%, 100% 1%, 100% 100%, 0% 100%
+  );
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Status for all messaging contexts - consistent color system */
+.ggbot-status-text-inactive, .ggbot-message-text.ggbot-status-inactive, .ggbot-message-text-inline.ggbot-status-inactive { color: var(--bone-300); }
+.ggbot-status-text-idle, .ggbot-message-text.ggbot-status-idle, .ggbot-message-text-inline.ggbot-status-idle { color: var(--agent-extraction); }
+.ggbot-status-text-extracting, .ggbot-message-text.ggbot-status-extracting, .ggbot-message-text-inline.ggbot-status-extracting { color: var(--agent-extraction); }
+.ggbot-status-text-deciding, .ggbot-message-text.ggbot-status-deciding, .ggbot-message-text-inline.ggbot-status-deciding { color: var(--agent-decision); }
+.ggbot-status-text-trading, .ggbot-message-text.ggbot-status-trading, .ggbot-message-text-inline.ggbot-status-trading { color: var(--agent-trading); }
+
+/* Control Modal Styles */
+
+/* VIBE.md Typography Classes */
+.text-header { @apply text-3xl md:text-4xl lg:text-5xl font-display; }
+.text-subheader { @apply text-lg md:text-xl lg:text-2xl font-display; }
+.text-body { @apply text-sm md:text-base lg:text-base font-sans; }
+.text-footnote { @apply text-xs font-sans; }
+
+/* Scroll area with fade indicators */
+.scroll-area {
+  position: relative;
+}
+
+.scroll-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, var(--charcoal-900), transparent);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-area::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to top, var(--charcoal-900), transparent);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-area:hover::before,
+.scroll-area:hover::after {
+  opacity: 1;
+}
+
+/* Form section styling */
+.form-section {
+  transition: all 0.2s ease;
+}
+
+.form-section:hover {
+  border-color: var(--charcoal-500);
+  background: var(--charcoal-800)/40;
+}
+
+/* Modal background with subtle paper texture */
+.modal-background {
+  position: relative;
+}
+
+.modal-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Subtle paper grain */
+    radial-gradient(circle at 20% 80%, transparent 1px, rgba(227, 229, 230, 0.015) 1px) 0 0 / 4px 4px,
+    /* Fiber texture */
+    linear-gradient(45deg, transparent 2px, rgba(227, 229, 230, 0.008) 2px, rgba(227, 229, 230, 0.008) 4px, transparent 4px) 0 0 / 6px 6px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.modal-background > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Custom slider styling for brutalist aesthetic */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--charcoal-800);
+  outline: none;
+  border: 2px solid var(--charcoal-600);
+  height: 8px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--agent-extraction);
+  border: 2px solid var(--charcoal-900);
+  cursor: pointer;
+  /* No border radius for brutalist style */
+  border-radius: 0;
+}
+
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: var(--agent-extraction);
+  border: 2px solid var(--charcoal-900);
+  cursor: pointer;
+  /* No border radius for brutalist style */
+  border-radius: 0;
+}
+
+.slider:focus {
+  border-color: var(--agent-extraction);
+}
+
+/* Accent color utilities for form controls */
+.accent-agent-extraction {
+  accent-color: var(--agent-extraction);
+}
+
+.text-agent-extraction {
+  color: var(--agent-extraction);
+}
+
+.border-agent-extraction {
+  border-color: var(--agent-extraction);
+}
+
+.bg-agent-extraction {
+  background-color: var(--agent-extraction);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #4ab3d9;
+}
+
+.slider::-moz-range-thumb:hover {
+  background: #4ab3d9;
+}
+
+/* GGBot Accordion Styling - Neumorphic shadows + corner brackets */
+.ggbot-accordion-btn {
+  /* Neumorphic dual shadows - matching ggbot circle */
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.9),
+    -8px -8px 16px rgba(255, 255, 255, 0.08);
+}
+
+/* Corner bracket styling for accordion buttons - matching dashboard cards */
+.ggbot-accordion-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  opacity: 0.6;
+  pointer-events: none;
+  background: 
+    linear-gradient(to right, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) top/100% 2px no-repeat,
+    linear-gradient(to bottom, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) left/2px 100% no-repeat;
+}
+
+.ggbot-accordion-btn:hover {
+  transform: translateY(-1px);
+  background: #1c1c1e; /* 10% lighter than charcoal-900 */
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.95),
+    -10px -10px 20px rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(227, 229, 230, 0.08); /* Subtle glow */
+}
+
+.ggbot-accordion-btn:active {
+  transform: translateY(0.5px);
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.85),
+    -4px -4px 8px rgba(255, 255, 255, 0.06);
+}
+
+/* Expanded accordion styling - same shadows and corner brackets */
+.ggbot-accordion-expanded {
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.9),
+    -8px -8px 16px rgba(255, 255, 255, 0.08);
+}
+
+.ggbot-accordion-expanded::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  opacity: 0.6;
+  pointer-events: none;
+  background: 
+    linear-gradient(to right, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) top/100% 2px no-repeat,
+    linear-gradient(to bottom, #e3e5e6 0%, #e3e5e6 30%, transparent 100%) left/2px 100% no-repeat;
+}
+
+/* Floating Action Buttons - Match ggbot circle design */
+.floating-action-buttons {
+  position: relative;
+  z-index: 10;
+}
+
+.floating-action-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--charcoal-900);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  /* Neumorphic dual shadows - smaller version of ggbot */
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.9),
+    -4px -4px 8px rgba(255, 255, 255, 0.08);
+}
+
+/* 4-quadrant border system for floating buttons */
+.floating-action-btn::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  border-radius: 50%;
+  background: 
+    /* Top-left quadrant - light */
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    /* Bottom-right quadrant - dark */
+    radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+  mask: 
+    radial-gradient(circle at center, transparent 22px, black 24px);
+  -webkit-mask: 
+    radial-gradient(circle at center, transparent 22px, black 24px);
+  z-index: 0;
+}
+
+.floating-action-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Enabled state - full opacity and interactivity */
+.floating-action-enabled {
+  opacity: 1;
+  color: var(--bone-200);
+}
+
+.floating-action-enabled:hover {
+  transform: translateY(-1px);
+  background: #1c1c1e; /* 10% lighter than charcoal-900 */
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.95),
+    -5px -5px 10px rgba(255, 255, 255, 0.2),
+    0 0 15px rgba(227, 229, 230, 0.1); /* Subtle glow */
+}
+
+.floating-action-enabled:active {
+  transform: translateY(0.5px);
+  box-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.85),
+    -2px -2px 4px rgba(255, 255, 255, 0.06);
+}
+
+/* Disabled state - grayed out and no interaction */
+.floating-action-disabled {
+  opacity: 0.4;
+  color: var(--bone-300);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Subtle inner shadow for depth - smaller version */
+.floating-action-btn::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  border-radius: inherit;
+  background: linear-gradient(145deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
